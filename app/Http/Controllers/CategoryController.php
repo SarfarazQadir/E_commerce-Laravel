@@ -26,9 +26,9 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function manage_category(Request $request)
     {
-        //
+        return view('Admin.manage_category');
     }
 
     /**
