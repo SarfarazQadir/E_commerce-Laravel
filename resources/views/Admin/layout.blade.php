@@ -245,12 +245,13 @@
                 </div>
             </header>
             <!-- HEADER DESKTOP-->
-@section('heading')
-@show
+
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
-                
+                    
+                    @section('heading')
+                    @show
                                 </div>
                             </div>
                         </div>
