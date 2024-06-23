@@ -12,7 +12,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        echo"hello";
+        return view('Admin.category');
     }
 
     /**
