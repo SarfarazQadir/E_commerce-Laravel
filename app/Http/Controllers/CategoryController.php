@@ -30,6 +30,21 @@ class CategoryController extends Controller
     {
         return view('Admin.manage_category');
     }
+    public function manage_category_process(Request $request)
+    {
+        $request->validate([
+            'category_name'=>'required',
+            'category_slug'=>'required|unique:categories'
+        ]);
+        $category = new Category();
+        $category->category_name = $request->post('category_name');
+        $category->category_slug = $request->post('category_slug');
+        // $category->status = 1;
+        $category->save();
+        $request->session()->flash('message','Category Inserted');
+        return redirect('admin/category');
+    }
+    
 
     /**
      * Display the specified resource.
