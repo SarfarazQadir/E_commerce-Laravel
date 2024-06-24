@@ -11,8 +11,13 @@ class AdminController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        if($request->session()->has('ADMIN_LOGIN')){
+            return view('Admin/dashboard');    
+        }else{
+            return view('Admin.login');
+        }
         return view('Admin.login');
     }
     public function dashboard()
