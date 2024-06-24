@@ -6,31 +6,21 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
-            <div class="card-header">Credit Card</div>
-            <div class="card-body">
-                <div class="card-title">
-                    <h3 class="text-center title-2">Pay Invoice</h3>
-                </div>
-                <hr>
-                <form action="" method="post" novalidate="novalidate">
+        <div class="card-body">
+                <form action="{{route('category.insert')}}" method="post" >
+                    @csrf
                     <div class="form-group">
-                        <label for="cc-payment" class="control-label mb-1">Payment amount</label>
-                        <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
+                        <label for="category" class="control-label mb-1">Category</label>
+                        <input id="category" name="category" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
                     </div>
-                    <div class="form-group has-success">
-                        <label for="cc-name" class="control-label mb-1">Name on card</label>
-                        <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card"
-                            autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
-                        <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
+                    <div class="form-group">
+                        <label for="category_slug" class="control-label mb-1">Category Slug</label>
+                        <input id="category_slug" name="category_slug" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
                     </div>
-                    
-                       
                     </div>
                     <div>
                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                            <i class="fa fa-lock fa-lg"></i>&nbsp;
-                            <span id="payment-button-amount">Pay $100.00</span>
-                            <span id="payment-button-sending" style="display:none;">Sending…</span>
+                           Submit
                         </button>
                     </div>
                 </form>
