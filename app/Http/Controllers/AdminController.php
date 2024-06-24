@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -18,6 +19,13 @@ class AdminController extends Controller
     {
         return view('Admin.dashboard');
     }
+    // make password hash
+    // public function updatepassword()
+    // {
+    //     $r = Admin::find(1);
+    //     $r->password=Hash::make('12345678');
+    //     $r->save();
+    // }
     public function auth(Request $request)
     {
         $email=$request->post('email');
