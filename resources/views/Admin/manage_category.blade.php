@@ -1,7 +1,8 @@
 @extends('Admin/layout')
 @section('heading')
-<h1>Manage Category</h1>
+<h1>Manage Category</h1><br>
 <a href="category"><button type="button" class="btn btn-success">Back</button></a>
+<br><br>
 <div class="row">
     <div class="col-lg-12">
         <div class="card">
