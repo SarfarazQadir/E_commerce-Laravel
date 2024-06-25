@@ -12,7 +12,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('Admin.category');
+        $result['data']= Category::all(); 
+        return view('Admin.category',$result);
     }
 
     /**
@@ -44,7 +45,13 @@ class CategoryController extends Controller
         $request->session()->flash('message','Category Inserted');
         return redirect('admin/category');
     }
-    
+
+    public function delete(Request $request, $id){
+        $model = Category::find($id);
+        $model->delete();
+        $request->session()->flash('message','Category Deleted');
+        return redirect('admin/category');
+    }
 
     /**
      * Display the specified resource.
