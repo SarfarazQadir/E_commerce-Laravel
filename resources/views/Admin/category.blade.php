@@ -29,7 +29,8 @@
                         <td>{{$row->id}}</td>
                         <td>{{$row->category_name}}</td>
                         <td>{{$row->category_slug}}</td>
-                        <td><a href="{{url('admin/category/delete')}}/{{$row->id}}"><button type="button" class="btn btn-danger">Delete</button></a></td>
+                        <td><a href="{{url('admin/category/delete')}}/{{$row->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="{{url('admin/category/manage_category')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a></td>
                     </tr>
                     @endforeach
                     

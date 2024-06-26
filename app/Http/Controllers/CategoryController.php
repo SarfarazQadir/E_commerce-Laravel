@@ -27,16 +27,28 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function manage_category(Request $request)
+    public function manage_category(Request $request,$id ='')
     {
-        return view('Admin.manage_category');
-    }
+        if($id>0){
+            $arr=Category::where(['id' => $id])->get();
+            
+            $result['category_name']=$arr['0']->category_name;
+            $result['category_slug']=$arr['0']->category_slug;
+            $result['id']=$arr['0']->id;
+            }else{
+                $result['category_name']='';
+                $result['category_slug']='';
+                $result['id']='';
+            }
+        return view('Admin.manage_category',$result);
+    
+}
     public function manage_category_process(Request $request)
     {
-        $request->validate([
-            'category_name'=>'required',
-            'category_slug'=>'required|unique:categories'
-        ]);
+        // $request->validate([
+        //     'category_name'=>'required',
+        //     'category_slug'=>'required|unique:categories'
+        // ]);
         $category = new Category();
         $category->category_name = $request->post('category_name');
         $category->category_slug = $request->post('category_slug');
@@ -64,17 +76,26 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $category)
+    public function edit(string $id)
     {
-        //
+      
+        $product = Category::find($id);
+        return view('Admin.edit_category', compact("product"));
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, string $id)
     {
-        //
+        $category = Category::find($id);
+        $category->category_name = $request->categoryname;
+        $category->category_slug = $request->categoryslug;
+        $category->save();
+        $request->session()->flash('message','Category Updated');
+        return redirect('admin/category');
+
     }
 
     /**

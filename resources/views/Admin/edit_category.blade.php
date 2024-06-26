@@ -7,11 +7,12 @@
     <div class="col-lg-12">
         <div class="card">
         <div class="card-body">
-                <form action="{{route('category.manage_category_process')}}" method="post" >
+            <h1>njk</h1>
+                <form action="{{route('update_category',['id'])}}" method="post" >
                     @csrf
                     <div class="form-group">
                         <label for="category_name" class="control-label mb-1">Category Name</label>
-                        <input id="category_name" value="{{$category_name}}" name="category_name" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
+                        <input id="category_name" value="{{$product->category_name}}" name="category_name" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
                     @error('category_name')
                     <div class="alert alert-danger" role="alert">
                         {{$message}}
@@ -20,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label for="category_slug" class="control-label mb-1">Category Slug</label>
-                        <input id="category_slug" name="category_slug" value="{{$category_slug}}" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
+                        <input id="category_slug" name="category_slug" type="text" value="{{$product->category_slug}}" class="form-control" aria-required="true" aria-invalid="false" required>
                         @error('category_slug')
                         <div class="alert alert-danger" role="alert">
                             {{$message}}
@@ -33,7 +34,6 @@
                            Submit
                         </button>
                     </div>
-                    <input type="hidden" value="{{$id}}" name="id" id="id">
                 </form>
             </div>
         </div>
