@@ -61,12 +61,13 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
+                                <a  href="dashboard">
+                                    <i class="fas fa-tachometer-alt"></i>Dashboard</a> 
+                            </li>
+                            <li>
+                                <a href="{{url('admin/category')}}">
+                                     <i class="fas fa-chart-bar"></i>Cetegory</a>
+                            </li>
                                 <li>
                                     <a href="index3.html">Dashboard 3</a>
                                 </li>
@@ -171,8 +172,8 @@
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a> 
                         </li>
                         <li>
-                            <a href="{{route('admin.category')}}">
-                                <i class="fas fa-chart-bar"></i>Cetegory</a>
+                            <a href="{{url('admin/category')}}">
+                                 <i class="fas fa-chart-bar"></i>Cetegory</a>
                         </li>
                        
                         </li>
@@ -234,7 +235,7 @@
                                                 </div>
                                             </div> --}}
                                             <div class="account-dropdown__footer">
-                                                <a href="logout">
+                                                <a href="{{url('admin/logout')}}">
                                                     <i class="zmdi zmdi-power"></i>Logout</a>
                                             </div>
                                         </div>

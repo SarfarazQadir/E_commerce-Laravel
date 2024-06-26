@@ -38,23 +38,29 @@ class CategoryController extends Controller
             }else{
                 $result['category_name']='';
                 $result['category_slug']='';
-                $result['id']='';
+                $result['id']='0';
             }
         return view('Admin.manage_category',$result);
     
 }
     public function manage_category_process(Request $request)
     {
-        // $request->validate([
-        //     'category_name'=>'required',
-        //     'category_slug'=>'required|unique:categories'
-        // ]);
+        $request->validate([
+            'category_name'=>'required',
+            'category_slug'=>'required|unique:categories,category_slug,'.$request->post('id')
+        ]);
+        if($request->post('id')>0){
+            $category = Category::find($request->post('id'));
+            $msg = "Category Updated";
+        }else{
         $category = new Category();
+        $msg = "Category inserted";
+        }
         $category->category_name = $request->post('category_name');
         $category->category_slug = $request->post('category_slug');
         // $category->status = 1;
         $category->save();
-        $request->session()->flash('message','Category Inserted');
+        $request->session()->flash('message',$msg);
         return redirect('admin/category');
     }
 
