@@ -1,4 +1,5 @@
 @extends('Admin/layout')
+@section('title','Edit Category')
 @section('heading')
 <h1>Manage Category</h1><br>
 <a href="{{url('admin/category')}}"><button type="button" class="btn btn-success">Back</button></a>
