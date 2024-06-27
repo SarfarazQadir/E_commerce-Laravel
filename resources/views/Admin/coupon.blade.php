@@ -1,12 +1,12 @@
 @extends('Admin/layout')
-@section('title','Category')
+@section('title','Coupon')
 @section('heading')
 <div class="alert alert-success" role="alert">
     {{session('message')}}
 </div>
-<h1>Category</h1>
+<h1>Coupon</h1>
 <br>
-<a href="category/manage_category"><button type="button" class="btn btn-success">Manage Category</button></a>
+<a href="{{url('admin/coupon/manage_coupon')}}"><button type="button" class="btn btn-success">Add Coupon</button></a>
 <br><br>
 <div class="row m-t-30">
     <div class="col-md-12">
@@ -16,8 +16,9 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>CATEGORY NAME</th>
-                        <th>CATEGORY SLUG</th>
+                        <th>TITLE</th>
+                        <th>CODE</th>
+                        <th>VALUE</th>
                         <th>ACTION</th>
                         
                     </tr>
@@ -28,10 +29,11 @@
                     
                     <tr>
                         <td>{{$row->id}}</td>
-                        <td>{{$row->category_name}}</td>
-                        <td>{{$row->category_slug}}</td>
-                        <td><a href="{{url('admin/category/delete')}}/{{$row->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
-                            <a href="{{url('admin/category/manage_category')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a></td>
+                        <td>{{$row->title}}</td>
+                        <td>{{$row->code}}</td>
+                        <td>{{$row->value}}</td>
+                        <td><a href="{{url('admin/coupon/delete')}}/{{$row->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                            <a href="{{url('admin/coupon/manage_coupon')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a></td>
                     </tr>
                     @endforeach
                     
