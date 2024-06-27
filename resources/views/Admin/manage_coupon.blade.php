@@ -28,6 +28,15 @@
                         </div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="value" class="control-label mb-1">Value</label>
+                        <input id="value" name="value" value="{{$value}}" type="text" class="form-control" aria-required="true" aria-invalid="false" required>
+                        @error('value')
+                        <div class="alert alert-danger" role="alert">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </div>
                     </div>
                     <div>
                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
