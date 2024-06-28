@@ -27,7 +27,7 @@ class SizeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function manage_category(Request $request,$id ='')
+    public function manage_size(Request $request,$id ='')
     {
         if($id>0){
             $arr=Size::where(['id' => $id])->get();
@@ -43,7 +43,7 @@ class SizeController extends Controller
         return view('Admin.manage_size',$result);
     
 }
-    public function manage_category_process(Request $request)
+    public function manage_size_process(Request $request)
     {
         $request->validate([
             'size'=>'required|unique:sizes,size,'.$request->post('id')
