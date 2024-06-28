@@ -33,8 +33,16 @@
                         <td>{{$row->title}}</td>
                         <td>{{$row->code}}</td>
                         <td>{{$row->value}}</td>
-                        <td><a href="{{url('admin/coupon/delete')}}/{{$row->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
-                            <a href="{{url('admin/coupon/manage_coupon')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a></td>
+                        <td>
+                            <a href="{{url('admin/coupon/manage_coupon')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a>
+                            @if ($row->status == 1)    
+                            <a href="{{url('admin/coupon/status/0')}}/{{$row->id}}"><button type="button" class="btn btn-primary">Active</button></a>
+                            @elseif ($row->status == 0)    
+                            <a href="{{url('admin/coupon/status/1')}}/{{$row->id}}"><button type="button" class="btn btn-warning">Deactive</button></a>  
+                            @endif
+                            <a href="{{url('admin/coupon/delete')}}/{{$row->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                        
+                        </td>
                     </tr>
                     @endforeach
                     

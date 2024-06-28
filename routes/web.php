@@ -43,6 +43,7 @@ Route::group(['middleware'=>'admin_auth'],function(){
     Route::get('admin/coupon/manage_coupon/{id}',[CouponController::class,'manage_coupon'])->name('admin.manage_coupon.edit');
     Route::post('admin/coupony/manage_coupon_process',[CouponController::class,'manage_coupon_process'])->name('coupon.manage_coupon_process');
     Route::get('admin/coupon/delete/{id}',[CouponController::class,'delete']);
+    Route::get('admin/coupon/status/{status}/{id}',[CouponController::class,'status']);
     
     
     // Admin Logout Route
