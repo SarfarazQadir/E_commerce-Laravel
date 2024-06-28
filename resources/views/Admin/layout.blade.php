@@ -13,10 +13,10 @@
     <title>@yield('title')</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="{{asset('admin_assets/css/font-face.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_assets/vendor/font-awesome-4.7/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_assets/vendor/font-awesome-5/css/fontawesome-all.min.css')}}" rel="stylesheet" media="all">
+    <link href="{{asset('admin_assets/vendor/mdi-font/css/material-design-iconic-font.min.css')}}" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
     <link href="{{asset('admin_assets/vendor/bootstrap-4.1/bootstrap.min.css')}}" rel="stylesheet" media="all">
@@ -29,6 +29,7 @@
     <link href="{{asset('admin_assets/vendor/slick/slick.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/select2/select2.min.css')}}" rel="stylesheet" media="all">
     <link href="{{asset('admin_assets/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
     <!-- Main CSS-->
     <link href="{{asset('admin_assets/css/theme.css')}}" rel="stylesheet" media="all">
@@ -66,12 +67,12 @@
                             </li>
                             <li>
                                 <a href="{{url('admin/category')}}">
-                                     <i class="fas fa-chart-bar"></i>Cetegory</a>
+                                    <i class="fas fa-chart-bar"></i>Cetegory</a>
                             </li>
                                <li>
                         <li>
                             <a href="{{url('admin/coupon')}}">
-                                 <i class="fas fa-chart-bar"></i>Coupon</a>
+                                <i class="fas fa-tag"></i>Coupon</a>
                         </li>
                        
                         </li>
@@ -93,18 +94,18 @@
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-                        <li>
+                        <li class="@yield('dashboard_select')">
                             {{-- class="active has-sub" --}}
                             <a  href="dashboard">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a> 
                         </li>
-                        <li>
+                        <li class="@yield('category_select')">
                             <a href="{{url('admin/category')}}">
                                  <i class="fas fa-chart-bar"></i>Cetegory</a>
                         </li>
-                        <li>
+                        <li class="@yield('coupon_select')">
                             <a href="{{url('admin/coupon')}}">
-                                 <i class="fas fa-chart-bar"></i>Coupon</a>
+                                <i class="fas fa-tags"></i>Coupon</a>
                         </li>
                        
                         </li>

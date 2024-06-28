@@ -1,5 +1,6 @@
 @extends('Admin/layout')
 @section('title','Coupon')
+@section('coupon_select','active')
 @section('heading')
 <div class="alert alert-success" role="alert">
     {{session('message')}}
