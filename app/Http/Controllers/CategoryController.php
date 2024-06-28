@@ -58,6 +58,7 @@ class CategoryController extends Controller
         }
         $category->category_name = $request->post('category_name');
         $category->category_slug = $request->post('category_slug');
+        $category->status = 1;
         // $category->status = 1;
         $category->save();
         $request->session()->flash('message',$msg);
