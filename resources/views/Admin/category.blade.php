@@ -32,12 +32,14 @@
                         <td>{{$row->category_name}}</td>
                         <td>{{$row->category_slug}}</td>
                         <td>
-                            <a href="{{url('admin/category/status/0')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a></td>
-                           @if ($row->status == 1)
-                               
-                           <a href="{{url('admin/category/manage_category')}}/{{$row->id}}"><button type="button" class="btn btn-primary">Active</button></a></td>
+                            <a href="{{url('admin/category/manage_category')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a>
+                           @if ($row->status == 1)    
+                           <a href="{{url('admin/category/status/0')}}/{{$row->id}}"><button type="button" class="btn btn-primary">Active</button></a>
+                           @elseif ($row->status == 0)    
+                           <a href="{{url('admin/category/status/1')}}/{{$row->id}}"><button type="button" class="btn btn-warning">Deactive</button></a>  
                            @endif
                             <a href="{{url('admin/category/delete')}}/{{$row->id}}"><button type="button" class="btn btn-danger">Delete</button></a>
+                        </td>
                     </tr>
                     @endforeach
                     
