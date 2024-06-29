@@ -49,32 +49,32 @@ class ColorController extends Controller
             'color'=>'required|unique:colors,color,'.$request->post('id')
         ]);
         if($request->post('id')>0){
-            $size = Color::find($request->post('id'));
+            $color = Color::find($request->post('id'));
             $msg = "Color Updated";
         }else{
-        $size = new Color();
+        $color = new Color();
         $msg = "Color inserted";
         }
-        $size->size = $request->post('color');
-        $size->status = 1;
+        $color->color = $request->post('color');
+        $color->status = 1;
         // $category->status = 1;
-        $size->save();
+        $color->save();
         $request->session()->flash('message',$msg);
-        return redirect('admin/size');
+        return redirect('admin/color');
     }
 
     public function delete(Request $request, $id){
-        $model = Size::find($id);
+        $model = Color::find($id);
         $model->delete();
-        $request->session()->flash('message','Size Deleted');
-        return redirect('admin/size');
+        $request->session()->flash('message','Color Deleted');
+        return redirect('admin/color');
     }
     public function status(Request $request,$status, $id){
-        $model = Size::find($id);
+        $model = Color::find($id);
         $model->status=$status;
         $model->save();
-        $request->session()->flash('message','Size Status Updated');
-        return redirect('admin/size');
+        $request->session()->flash('message','Color Status Updated');
+        return redirect('admin/color');
     }
 
     
@@ -82,7 +82,7 @@ class ColorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Size $size)
+    public function show(Color $color)
     {
         //
     }
@@ -93,8 +93,8 @@ class ColorController extends Controller
     public function edit(string $id)
     {
       
-        $size = Size::find($id);
-        return view('Admin.edit_size', compact("size"));
+        $color = Color::find($id);
+        return view('Admin.edit_color', compact("color"));
     }
     
 
@@ -103,12 +103,12 @@ class ColorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $size = Size::find($id);
-        $size->size = $request->size;
-        $size->category_slug = $request->categoryslug;
-        $size->save();
-        $request->session()->flash('message','Size Updated');
-        return redirect('admin/size');
+        $color = Color::find($id);
+        $color->color = $request->color;
+        $color->category_slug = $request->categoryslug;
+        $color->save();
+        $request->session()->flash('message','Color Updated');
+        return redirect('admin/color');
 
     }
 
