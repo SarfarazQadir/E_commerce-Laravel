@@ -18,7 +18,6 @@
                     <tr>
                         <th>ID</th>
                         <th>COLOR</th>
-                        <th>SIZE</th>
                         <th>ACTION</th>
                         
                     </tr>
@@ -30,7 +29,6 @@
                     <tr>
                         <td>{{$row->id}}</td>
                         <td>{{$row->color}}</td>
-                        <td>{{$row->size}}</td>
                         <td>
                             <a href="{{url('admin/color/manage_color')}}/{{$row->id}}"><button type="button" class="btn btn-success">Edit</button></a>
                            @if ($row->status == 1)    
