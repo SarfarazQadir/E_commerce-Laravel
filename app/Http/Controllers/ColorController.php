@@ -105,7 +105,7 @@ class ColorController extends Controller
     {
         $color = Color::find($id);
         $color->color = $request->color;
-        $color->category_slug = $request->categoryslug;
+        $color->size = $request->size;
         $color->save();
         $request->session()->flash('message','Color Updated');
         return redirect('admin/color');
@@ -115,7 +115,7 @@ class ColorController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Size $size)
+    public function destroy(Color $color)
     {
         //
     }
