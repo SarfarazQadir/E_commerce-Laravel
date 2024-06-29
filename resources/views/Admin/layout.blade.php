@@ -78,6 +78,10 @@
                             <a href="{{url('admin/size')}}">
                                 <i class="fa-solid fa-window-maximize"></i>Size</a>
                         </li>
+                        <li>
+                            <a href="{{url('admin/color')}}">
+                                <i class="fa-solid fa-fill"></i>Color</a>
+                        </li>
                        
                         </li>
                             </ul>
