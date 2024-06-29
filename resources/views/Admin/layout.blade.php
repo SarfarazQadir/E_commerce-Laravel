@@ -113,7 +113,7 @@
                         </li>
                         <li class="@yield('size_select')">
                             <a href="{{url('admin/size')}}">
-                                <i class="fa-solid fa-window-maximize"></i>Size</a>
+                                <i class="fas fa-tags"></i>Size</a>
                         </li>
                        
                         </li>
